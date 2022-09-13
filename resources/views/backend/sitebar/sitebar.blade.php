@@ -42,6 +42,7 @@
         </div>
     </li>
 
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -57,6 +58,22 @@
                 <a class="collapse-item" href="utilities-border.html">Borders</a>
                 <a class="collapse-item" href="utilities-animation.html">Animations</a>
                 <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTag"
+            aria-expanded="true" aria-controls="collapseTag">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Tag</span>
+        </a>
+        <div id="collapseTag" class="collapse" aria-labelledby="headingTag"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Tag:</h6>
+                <a class="collapse-item" href="{{ route('tag.index')}}">Add Tag</a>
+                <a class="collapse-item" href="{{ route('tag.create')}}">List Tag</a>
+
             </div>
         </div>
     </li>
@@ -99,9 +116,9 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ url('/')}}" target="_blank">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>Website</span></a>
     </li>
 
     <!-- Divider -->

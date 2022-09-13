@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     });
 
     Route::resource('category', CategoryController::class);
+
+    //tag start//
+    Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
+    Route::get('/tag/index', [TagController::class, 'index'])->name('tag.index');
+    Route::post('/tag/store', [TagController::class, 'store'])->name('tag.store');
+    Route::get('/tag/edit/{id}', [TagController::class, 'edit'])->name('tag.edit');
+    Route::post('/tag/update/{id}', [TagController::class, 'update'])->name('tag.update');
+    Route::get('/tag/destroy/{id}', [TagController::class, 'destroy'])->name('tag.destroy');
 });
 
 
