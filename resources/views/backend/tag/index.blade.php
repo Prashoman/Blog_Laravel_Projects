@@ -43,6 +43,7 @@
 
 
                     </table>
+                    {{ $tags->links() }}
                 </div>
             </div>
         </div>

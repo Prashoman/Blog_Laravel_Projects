@@ -12,7 +12,7 @@ class TagController extends Controller
         return view('backend.tag.create');
     }
     public function create(){
-        $tags = Tag::orderBy('id', 'DESC')->get();
+        $tags = Tag::orderBy('id', 'DESC')->paginate(5);
         return view('backend.tag.index', compact('tags'));
     }
 

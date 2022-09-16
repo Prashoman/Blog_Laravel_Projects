@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view('backend.category.create', compact('categories'));
     }
 
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'category_name' =>'required|unique:categories',
-            'category_description' => 'required',
+
         ]);
 
         Category::insert([
@@ -95,8 +95,8 @@ class CategoryController extends Controller
        $category_description = $request->category_description;
 // echo $category_id.$category_name.$category_description;
         $request->validate([
-            'category_name' =>'required',
-            'category_description' => 'required'
+            'category_name' =>'required|unique:categories',
+
         ]);
 
        Category::find($category_id)->update([

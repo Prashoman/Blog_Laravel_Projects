@@ -31,13 +31,15 @@
                                 <td>{{$category->category_slug}}</td>
                                 <td>{{$category->category_description}}</td>
                                 <td>
-                                    <a href="{{route('category.edit',$category->id)}}" class="btn btn-sm btn-success">Edit</a>
+                                    <div class="d-flex">
+                                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-sm btn-success mr-3">Edit</a>
 
-                                    <form action="{{ route('category.destroy',$category->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button value="{{ route('category.destroy',$category->id)}}" class="btn btn-sm btn-danger ">Deleted</button>
-                                    </form>
+                                        <form action="{{ route('category.destroy',$category->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button value="{{ route('category.destroy',$category->id)}}" class="btn btn-sm btn-danger mr-3">Deleted</button>
+                                        </form>
+                                    </div>
                                     {{-- <a href="{{ route('category.destroy',$category->id)}}" class="btn btn-sm btn-success">delete</a> --}}
 
                                     {{-- <button value="{{ route('category.destroy',$category->id)}}" class="btn btn-sm btn-danger btn_delete">Deleted</button> --}}
@@ -52,6 +54,11 @@
 
                         </tbody>
                     </table>
+
+                        {{$categories->onEachSide(5)->links() }}
+
+                        {{-- {{ $categories->links() }} --}}
+
                 </div>
             </div>
         </div>

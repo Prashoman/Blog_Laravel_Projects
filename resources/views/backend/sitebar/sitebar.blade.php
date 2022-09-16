@@ -43,24 +43,8 @@
     </li>
 
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
+
+    <!--Tag--->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTag"
             aria-expanded="true" aria-controls="collapseTag">
@@ -73,6 +57,24 @@
                 <h6 class="collapse-header">Tag:</h6>
                 <a class="collapse-item" href="{{ route('tag.index')}}">Add Tag</a>
                 <a class="collapse-item" href="{{ route('tag.create')}}">List Tag</a>
+
+            </div>
+        </div>
+    </li>
+
+    <!---Post--->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePost"
+            aria-expanded="true" aria-controls="collapsePost">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Post</span>
+        </a>
+        <div id="collapsePost" class="collapse" aria-labelledby="headingPost"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Post</h6>
+                <a class="collapse-item" href="{{ route('post.create')}}">Add Post</a>
+                <a class="collapse-item" href="{{ route('post.index') }}">List Post</a>
 
             </div>
         </div>

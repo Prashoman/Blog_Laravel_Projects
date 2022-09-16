@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-       return view('frontend.index');
+        $posts = Post::orderBy('id', 'DESC')->take(6)->paginate(6);
+       return view('frontend.index',compact('posts'));
     }
     public function category(){
         return view('frontend.category');

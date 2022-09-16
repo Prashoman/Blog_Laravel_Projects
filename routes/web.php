@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/tag/edit/{id}', [TagController::class, 'edit'])->name('tag.edit');
     Route::post('/tag/update/{id}', [TagController::class, 'update'])->name('tag.update');
     Route::get('/tag/destroy/{id}', [TagController::class, 'destroy'])->name('tag.destroy');
+    //tag end
+
+    //post start
+    Route::resource('post', PostController::class);
 });
 
 
