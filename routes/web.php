@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/category', [App\Http\Controllers\HomeController::class, 'category']);
+Route::get('/category/{id}', [App\Http\Controllers\HomeController::class, 'category'])->name('single.category');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about']);
 // Route::get('/single', [App\Http\Controllers\HomeController::class, 'single']);
 Route::get('/details/{slug}', [App\Http\Controllers\HomeController::class, 'diteils'])->name('blog.details');

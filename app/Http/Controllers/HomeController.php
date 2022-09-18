@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Posttag;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -46,8 +48,19 @@ class HomeController extends Controller
 
        return view('frontend.index',compact('posts','postFirst', 'postsecond', 'postthird', 'footerFirst', 'Foterpostsecond', 'Foterpostpostthird'));
     }
-    public function category(){
-        return view('frontend.category');
+    public function category($id){
+        // $tags = Posttag::where('post_id', $id)->get();
+        // return $tags;
+
+        $single_post = Post::where('category_id', $id)->first();
+        if( $single_post){
+            $categoryposts = Post::where('category_id', $id)->get();
+            //return $categoryposts;
+           return view('frontend.category', compact('categoryposts','single_post'));
+        }
+        else{
+            return back();
+        }
 
     }
     public function about(){
@@ -65,7 +78,11 @@ class HomeController extends Controller
 
     public function diteils($slug){
         $details_post = Post::where('post_slug', $slug)->first();
+        $popularposts = Post::inRandomOrder()->limit(3)->get();
+        //$tags = Tag::orderBy('id', 'DESC')->limit('10')->get();
 
-        return view('frontend.single', compact('details_post'));
+        // return $tags;
+
+        return view('frontend.single', compact('details_post', 'popularposts'));
     }
 }
